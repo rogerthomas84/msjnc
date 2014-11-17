@@ -532,6 +532,7 @@ sub _connected {
 
     if (! $noop) {
         $log->("Session: connected successfully");
+        `notify-send -i "changes-prevent" "VPN" "VPN Connected"`;
         run_script('connected');
     }
     return 1;
@@ -550,6 +551,7 @@ sub _disconnected {
 
     if (! $noop) {
         $log->("Session: disconnected");
+        `notify-send -i "changes-allow" "VPN" "VPN Disconnected"`;
         run_script('disconnected');
     }
     return 1;
